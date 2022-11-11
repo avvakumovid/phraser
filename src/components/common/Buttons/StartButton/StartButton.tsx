@@ -1,21 +1,23 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './StartButton.module.scss';
-
+import startBtnLight from '../../../../assets/img/startBtnLight.svg';
+import startBtnDark from '../../../../assets/img/startBtnDark.svg';
 interface StartButtonProps {
   onClick: () => void;
-  topColor: string;
-  bottomColor: string;
+  dark: boolean;
 }
 
-const StartButton = ({ onClick, topColor, bottomColor }: StartButtonProps) => (
-  <button
-    className={`${styles.wrapper}  from-[${topColor}] to-[${bottomColor}]`}
-    onClick={onClick}
-  >
-    <div>
-      <span>Начать</span>
-    </div>
-  </button>
-);
+const StartButton = ({ onClick, dark }: StartButtonProps) => {
+  return (
+    <button className={styles.button} onClick={onClick}>
+      <img
+        width={'100%'}
+        src={dark ? startBtnDark : startBtnLight}
+        alt='s'
+        style={{ fill: 'url(#sun-gradient)' }}
+      />
+    </button>
+  );
+};
 
 export default StartButton;

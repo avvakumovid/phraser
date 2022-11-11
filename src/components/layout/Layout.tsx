@@ -1,13 +1,22 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
+import { ThemeContext } from '../../context/context';
 
 interface ILayout {
   children: ReactNode;
 }
 
 const Layout = ({ children }: ILayout) => {
+  const { colors } = useContext(ThemeContext);
   return (
-    <div className='w-screen h-screen bg-[#3f454e] text-[#FF2CDF]'>
-      <div className='max-w-2xl mx-auto my-0 bg-[#0E1621] h-full p-5 flex justify-center items-start'>
+    <div
+      style={{
+        color: colors.text,
+      }}
+      className={`w-screen h-screen text-[${colors.text}]`}
+    >
+      <div
+        className={`max-w-2xl mx-auto my-0 bg-[${colors.bg}] h-full p-5 flex justify-center items-start`}
+      >
         {children}
       </div>
     </div>

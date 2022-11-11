@@ -1,7 +1,6 @@
 import React from 'react';
-
-import Start from './../screens/Start';
 import { Route, Routes } from 'react-router-dom';
+import Start from '../screens/start/Start';
 
 const Navigation = () => {
   return (
