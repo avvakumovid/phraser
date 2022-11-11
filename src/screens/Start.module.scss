@@ -1,0 +1,6 @@
+@import '../styles/variables';
+
+.text {
+    @apply text-3xl;
+    @include gradientPinkToPurple;
+}

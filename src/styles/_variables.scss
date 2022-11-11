@@ -1,0 +1,19 @@
+$pink: #FF2CDF;
+$purple: #704EF4;
+$blue: #2CFFFF;
+
+@mixin gradientPinkToPurple {
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#FF2CDF] to-[#704EF4];
+}
+
+@mixin gradientPurpleToPink {
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#FF2CDF];
+}
+
+@mixin gradientPurpleToBlue {
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#2CFFFF];
+}
+
+@mixin gradientBlueToPurple {
+  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#2CFFFF] to-[#704EF4];
+}

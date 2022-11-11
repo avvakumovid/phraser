@@ -1,0 +1,11 @@
+.wrapper {
+  @apply p-0.5 flex items-center justify-center rounded-full bg-gradient-to-b drop-shadow-md;
+
+  >div {
+    @apply w-full flex items-center justify-center h-full px-4 py-2 bg-[#0E1621] rounded-full transition-colors ease-in duration-150 hover:bg-opacity-80;
+
+    >span {
+      @apply text-[#0E1621] rounded-full text-transparent bg-clip-text bg-gradient-to-b px-1 from-[#704EF4] to-[#FF2CDF] uppercase italic  text-xl font-normal  md:text-2xl lg:text-3xl;
+    }
+  }
+}
