@@ -31,8 +31,19 @@ const Item: FC<ItemProps> = ({
     handleDragging(true);
     e.currentTarget.style.opacity = '0';
   };
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    // e.dataTransfer.setData('text', `${id}`);
+    console.log(e);
+    handleDragging(true);
+    // e.
+  };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    handleDragging(false);
+    e.currentTarget.style.opacity = '1';
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     handleDragging(false);
     e.currentTarget.style.opacity = '1';
   };
@@ -47,6 +58,8 @@ const Item: FC<ItemProps> = ({
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onMouseDown={e => {}}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <img alt='pic' src={src} />
       <Player

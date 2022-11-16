@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { setTasks } from '../../store/slice/mainSlice';
 import styles from './Start.module.scss';
 import { Link } from 'react-router-dom';
+import BeatifulDnd from './../../components/BeatifulDnd/BeatifulDnd';
 
 const Start = () => {
   const { dark } = useContext(ThemeContext);
