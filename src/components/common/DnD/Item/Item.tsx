@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, MouseEvent } from 'react';
 import { IColors } from '../../../../types/types';
 import Player from '../../Player/Player';
 import styles from './Item.module.scss';
@@ -27,12 +27,12 @@ const Item: FC<ItemProps> = ({
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData('text', `${id}`);
     handleDragging(true);
-    // e.currentTarget.style.opacity = '0';
+    e.currentTarget.style.opacity = '0';
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
     handleDragging(false);
-    // e.currentTarget.style.opacity = '1';
+    e.currentTarget.style.opacity = '1';
   };
 
   return (
@@ -44,6 +44,7 @@ const Item: FC<ItemProps> = ({
       className={styles.item}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
+      onMouseDown={e => {}}
     >
       <img alt='pic' src={src} />
       <Player
