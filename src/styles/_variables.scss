@@ -19,15 +19,15 @@ $bgDark: $black;
 }
 
 @mixin gradientReverseLight {
-  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#FF2CDF];
+  @apply bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#FF2CDF] text-transparent;
 }
 
 @mixin gradientDark {
-  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#2CFFFF];
+  @apply bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#2CFFFF] text-transparent;
 }
 
 @mixin gradientReverseDark {
-  @apply text-transparent bg-clip-text bg-gradient-to-b from-[#2CFFFF] to-[#704EF4];
+  @apply bg-clip-text bg-gradient-to-b from-[#2CFFFF] to-[#704EF4] text-transparent;
 }
 
 @mixin heartBeat {
