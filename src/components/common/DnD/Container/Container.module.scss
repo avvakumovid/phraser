@@ -1,8 +1,16 @@
 .container {
-    @apply w-full h-[30vh] border border-purple-400 flex justify-center items-center;
-
+    @apply w-full h-[15vh] flex justify-start items-center uppercase rounded-3xl italic z-10;
     transition: all .6s ease;
+
+    >div {
+        @apply flex flex-row justify-start items-center mr-5;
+
+    }
+
+
 }
+
+
 
 .isDraging {
     @apply bg-yellow-200

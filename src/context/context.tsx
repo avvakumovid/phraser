@@ -12,7 +12,7 @@ const thems = {
     top: '#2CFFFF',
     bottom: '#704EF4',
     bg: '#0E1621',
-    text: '#704EF4',
+    text: '#2CFFFF',
   },
   light: {
     top: '#704EF4',
@@ -43,7 +43,6 @@ export const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     } else {
       setColors(thems.light);
     }
-    console.log(dark);
   }, [dark]);
 
   return (

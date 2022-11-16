@@ -1,0 +1,16 @@
+.button {
+  @apply w-[120px] md:w-[200px] lg:w-[250px] bg-opacity-[0.2] rounded-full;
+
+
+}
+
+.heart {
+  animation: beat 0.75s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}

@@ -1,58 +1,108 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Container from './Container/Container';
 import Item from './Item/Item';
-import { IData } from './../../../types/types';
+import { IColors, IData, Task } from './../../../types/types';
+import { useAudio } from '../Player/Player';
+import SuccessOrMistake from '../SuccessOrMistake/SuccessOrMistake';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setTasks } from '../../../store/slice/mainSlice';
+export interface DnDTask extends Task {
+  success: boolean;
+}
 
-const data: IData[] = [
-  {
-    taskId: 0,
-    taskName: 'asd',
-    accept: false,
-  },
-  {
-    taskId: 1,
-    taskName: '123',
-    accept: false,
-  },
-];
+interface DNDProps {
+  tasks: Task[];
+  colors: IColors;
+  dark: boolean;
+}
 
-const DnD = () => {
+const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
+  const navigation = useNavigate();
+  const dispatch = useDispatch();
   const [isDragging, setIsDragging] = useState(false);
   const handleDragging = (dragging: boolean) => setIsDragging(dragging);
+  const [show, setShow] = useState(false);
+  const [som, setSom] = useState<'success' | 'mistake'>('mistake');
+  const [dataList, setDataList] = useState<DnDTask[]>([
+    ...tasks.map(task => ({ ...task, success: false })),
+  ]);
+  const [shuffledataList, setshuffledataList] = useState<DnDTask[]>(
+    shuffle([...tasks.map(task => ({ ...task, success: false }))])
+  );
 
-  const [dataList, setDataList] = useState<IData[]>(data);
+  useEffect(() => {
+    if (!shuffledataList.find(s => s.success === false)) {
+      dispatch(setTasks());
+      setTimeout(() => {
+        navigation('/starttask/1');
+      }, 400);
+    }
+  }, [shuffledataList]);
 
   const handleUpdateList = (id: number) => {
-    setDataList(prev =>
+    setshuffledataList(prev =>
       prev.map(p => {
-        if (p.taskId === id) {
-          p.accept = true;
+        if (p.id === id) {
+          p.success = true;
         }
         return p;
       })
     );
   };
   return (
-    <div className='h-full w-full bg-red-500 flex flex-col justify-between'>
+    <div className='h-full w-full  flex flex-col justify-between'>
       <Container
+        setShow={setShow}
+        setSom={setSom}
+        colors={colors}
+        dark={dark}
+        key='Container-1'
         data={dataList[0]}
         isDragging={isDragging}
         handleDragging={handleDragging}
         handleUpdateList={handleUpdateList}
       />
 
-      {dataList.map(d => (
-        <Item handleDragging={handleDragging} id={d.taskId} hide={d.accept} />
+      {shuffledataList.map(d => (
+        <Item
+          colors={colors}
+          dark={dark}
+          key={d.id}
+          handleDragging={handleDragging}
+          id={d.id}
+          audio={d.audio2}
+          src={d.image.toString()}
+          hide={d.success}
+        />
       ))}
 
       <Container
+        setShow={setShow}
+        setSom={setSom}
+        colors={colors}
+        dark={dark}
+        key='Container-2'
         data={dataList[1]}
         isDragging={isDragging}
         handleDragging={handleDragging}
         handleUpdateList={handleUpdateList}
       />
+      {show && (
+        <SuccessOrMistake
+          show={show}
+          colors={colors}
+          isSuccess={som === 'success'}
+        />
+      )}
     </div>
   );
 };
 
 export default DnD;
+
+const shuffle = (array: any[]) => {
+  let shuffleArr = [...array];
+  shuffleArr.sort(() => Math.random() - 0.5);
+  return shuffleArr;
+};

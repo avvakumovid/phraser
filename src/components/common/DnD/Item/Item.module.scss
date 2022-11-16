@@ -1,3 +1,7 @@
 .item {
-    @apply w-full h-[10vh] bg-red-300 flex flex-row justify-start items-center px-4
+    @apply w-full flex flex-row justify-start items-end px-4;
+
+    >img {
+        @apply mr-5 w-[200px] md:w-[220px] lg:w-[250px]
+    }
 }

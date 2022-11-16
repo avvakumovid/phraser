@@ -11,24 +11,24 @@ import DnD from './../../components/common/DnD/DnD';
 import { useDispatch } from 'react-redux';
 import { setTasks } from '../../store/slice/mainSlice';
 import styles from './Start.module.scss';
+import { Link } from 'react-router-dom';
+import QuestionButton from '../../components/common/Buttons/QuestionButton/QuestionButton';
 
 const Start = () => {
   const { colors, dark } = useContext(ThemeContext);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setTasks());
-  }, []);
+
   return (
     <Layout>
-      <div className={styles.container}>
+      <Link to='/startTask/0' className={styles.container}>
         <StartButton
           onClick={() => {
-            console.log('asd');
+            dispatch(setTasks());
           }}
           dark={dark}
           anim={false}
         />
-      </div>
+      </Link>
       <ThemeButton />
     </Layout>
   );

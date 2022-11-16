@@ -1,3 +1,10 @@
 .success {
-    @apply absolute w-[200px] md:w-[250px] lg:w-[300px]
+    @apply absolute w-[200px] md:w-[250px] lg:w-[300px] top-0 bottom-0 left-0 right-0 m-auto;
+
+    transition: all 1.5s ease;
+}
+
+.show {
+    @apply block;
+    transition: all 1.5s ease;
 }
