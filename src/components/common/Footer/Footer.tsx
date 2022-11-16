@@ -11,12 +11,14 @@ interface FooterProps {
   dark: boolean;
   linkTo: string;
   isOnlyHome?: boolean;
+  onRightClick?: () => void;
 }
 
 export const Footer: FC<FooterProps> = ({
   dark,
   linkTo,
   isOnlyHome = false,
+  onRightClick = () => {},
 }) => {
   let navigate = useNavigate();
   return (
@@ -39,7 +41,13 @@ export const Footer: FC<FooterProps> = ({
         <img width='100%' alt='home' src={dark ? HomeDark : HomeLight} />
       </Link>
       {!isOnlyHome && (
-        <Link className='w-[20px] md:w-[30px] lg:w-[40px]' to={linkTo}>
+        <Link
+          onClick={() => {
+            onRightClick();
+          }}
+          className='w-[20px] md:w-[30px] lg:w-[40px]'
+          to={linkTo}
+        >
           <img width='100%' alt='right' src={dark ? RightDark : RightLight} />
         </Link>
       )}

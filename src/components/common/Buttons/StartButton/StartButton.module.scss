@@ -1,14 +1,20 @@
+@import '../../../../styles/variables';
+
+
 .button {
   @apply w-[200px] md:w-[300px] lg:w-[400px] bg-opacity-[0.2] rounded-full;
 
+  @include heartBeat
 
 }
 
 .heart {
   animation: beat 0.75s infinite alternate;
-	transform-origin: center;
+  transform-origin: center;
 }
 
-@keyframes beat{
-	to { transform: scale(1.1); }
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
 }

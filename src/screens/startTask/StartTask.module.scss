@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.container {
+    @apply flex flex-row mt-[15vh] justify-start items-center;
+
+    >div {
+        @apply ml-5 flex flex-col;
+
+        >span {
+            @apply italic uppercase mt-2
+        }
+    }
+}
+
+.heart {
+    @include heartBeat
+}

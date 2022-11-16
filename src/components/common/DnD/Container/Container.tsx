@@ -32,6 +32,7 @@ const Container: FC<ContainerProps> = ({
     require('../../../../assets/sounds/mistake.mp3')
   ).toggle;
 
+  const [pressed, setPressed] = useState(false);
   const [isOn, setIsOn] = useState(false);
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -76,7 +77,15 @@ const Container: FC<ContainerProps> = ({
         counter--;
       }}
     >
-      <Player colors={colors} dark={dark} url={data.audio1} />
+      <Player
+        pulse={!pressed}
+        onClick={() => {
+          setPressed(true);
+        }}
+        colors={colors}
+        dark={dark}
+        url={data.audio1}
+      />
       <span>{data.phrase}</span>
     </div>
   );

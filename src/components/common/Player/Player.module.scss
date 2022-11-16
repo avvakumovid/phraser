@@ -1,0 +1,9 @@
+@import '../../../styles/variables';
+
+.button {
+    @apply flex items-center justify-center
+}
+
+.heart {
+    @include heartBeat
+}

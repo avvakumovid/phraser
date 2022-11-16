@@ -29,3 +29,14 @@ $bgDark: $black;
 @mixin gradientReverseDark {
   @apply text-transparent bg-clip-text bg-gradient-to-b from-[#2CFFFF] to-[#704EF4];
 }
+
+@mixin heartBeat {
+  animation: beat 1s infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { IColors } from '../../../../types/types';
 import Player from '../../Player/Player';
 import styles from './Item.module.scss';
@@ -22,6 +22,8 @@ const Item: FC<ItemProps> = ({
   colors,
   dark,
 }) => {
+  const [pressed, setPressed] = useState(false);
+
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData('text', `${id}`);
     handleDragging(true);
@@ -44,7 +46,15 @@ const Item: FC<ItemProps> = ({
       onDragEnd={handleDragEnd}
     >
       <img alt='pic' src={src} />
-      <Player colors={colors} dark={dark} url={audio} />
+      <Player
+        pulse={!pressed}
+        onClick={() => {
+          setPressed(true);
+        }}
+        colors={colors}
+        dark={dark}
+        url={audio}
+      />
     </div>
   );
 };

@@ -6,11 +6,18 @@ interface StartButtonProps {
   onClick: () => void;
   dark: boolean;
   anim: boolean;
+  disabled: boolean;
 }
 
-const QuestionButton = ({ onClick, dark, anim }: StartButtonProps) => {
+const QuestionButton = ({
+  onClick,
+  dark,
+  anim,
+  disabled,
+}: StartButtonProps) => {
   return (
     <button
+      disabled={disabled}
       className={`${styles.button} ${anim ? styles.heart : null}`}
       onClick={() => {
         onClick();

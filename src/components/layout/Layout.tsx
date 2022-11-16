@@ -7,6 +7,7 @@ interface ILayout {
   isFooter?: boolean;
   linkTo?: string;
   isOnlyHome?: boolean;
+  onRightClick?: () => void;
 }
 
 const Layout = ({
@@ -14,6 +15,7 @@ const Layout = ({
   isFooter = false,
   linkTo = '/',
   isOnlyHome = false,
+  onRightClick = () => {},
 }: ILayout) => {
   const { colors, dark } = useContext(ThemeContext);
   return (
@@ -24,7 +26,12 @@ const Layout = ({
       <div className={`${styles.children}`}>
         {children}
         {isFooter && (
-          <Footer dark={dark} linkTo={linkTo} isOnlyHome={isOnlyHome} />
+          <Footer
+            dark={dark}
+            linkTo={linkTo}
+            isOnlyHome={isOnlyHome}
+            onRightClick={onRightClick}
+          />
         )}
       </div>
     </div>

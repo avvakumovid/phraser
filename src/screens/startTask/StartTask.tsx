@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { setTasks } from '../../store/slice/mainSlice';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import styles from './StartTask.module.scss';
 
 interface StartTaskProps {
   colors: IColors;
@@ -19,29 +20,31 @@ const StartTask: FC<StartTaskProps> = ({ colors, dark }) => {
   const { taskNumbers } = useAppSelector(state => state.main);
   let navigate = useNavigate();
 
+  const [pressed, setPressed] = useState(false);
 
- 
   return (
     <Layout isFooter={true} isOnlyHome={true}>
       {taskNumber && taskNumbers && (
-        <div className='flex flex-row mt-[15vh] justify-start items-center'>
+        <div className={`${styles.container}`}>
           <button
             onClick={() => {
+              setPressed(true);
               setTimeout(() => {
                 navigate(taskNumbers[+taskNumber].to || '/');
               }, taskNumbers[+taskNumber].duration);
             }}
           >
             <Player
+              pulse={!pressed}
               isRevers={true}
               url={taskNumbers[+taskNumber].audio}
               colors={colors}
               dark={dark}
             />
           </button>
-          <div className='ml-5 flex flex-col'>
+          <div>
             <GradientedText dark={dark}>Задание</GradientedText>
-            <span className='italic'>{taskNumbers[+taskNumber].title}</span>
+            <span>{taskNumbers[+taskNumber].title}</span>
           </div>
         </div>
       )}

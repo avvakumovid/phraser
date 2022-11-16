@@ -1,6 +1,7 @@
 import React, { useState, useEffect, FC } from 'react';
 import { IColors } from '../../../types/types';
 import PlayBtn from '../Buttons/PlayBtn/PlayBtn';
+import styles from './Player.module.scss';
 
 export const useAudio = (url: any) => {
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
@@ -38,17 +39,30 @@ interface PlayerProps {
   colors: IColors;
   dark: boolean;
   isRevers?: boolean;
+  pulse?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
-const Player: FC<PlayerProps> = ({ url, colors, dark, isRevers = false }) => {
+const Player: FC<PlayerProps> = ({
+  url,
+  colors,
+  dark,
+  isRevers = false,
+  pulse = false,
+  disabled = false,
+  onClick = () => {},
+}) => {
   const { playing, toggle } = useAudio(url);
 
   return (
     <div>
       <button
-        className='flex items-center justify-center'
+        disabled={disabled}
+        className={`${styles.button} ${pulse ? styles.heart : ''}`}
         onClick={() => {
           toggle();
+          onClick();
         }}
       >
         <PlayBtn
