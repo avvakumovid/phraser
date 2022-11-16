@@ -64,8 +64,9 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
         handleUpdateList={handleUpdateList}
       />
 
-      {shuffledataList.map(d => (
+      {shuffledataList.map((d, i) => (
         <Item
+          isRevers={i == 0}
           colors={colors}
           dark={dark}
           key={d.id}
@@ -87,6 +88,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
         isDragging={isDragging}
         handleDragging={handleDragging}
         handleUpdateList={handleUpdateList}
+        isRevers={true}
       />
       {show && (
         <SuccessOrMistake

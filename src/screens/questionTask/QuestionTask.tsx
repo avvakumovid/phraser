@@ -105,7 +105,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
                   dark={dark}
                   key={'audio3'}
                   url={task.audio3}
-                  isRevers={true}
+                  isRevers={false}
                 />
               </div>
             </>

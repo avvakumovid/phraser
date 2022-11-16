@@ -11,6 +11,7 @@ interface ItemProps {
   audio: (id: string) => any;
   colors: IColors;
   dark: boolean;
+  isRevers: boolean;
 }
 
 const Item: FC<ItemProps> = ({
@@ -21,6 +22,7 @@ const Item: FC<ItemProps> = ({
   src,
   colors,
   dark,
+  isRevers,
 }) => {
   const [pressed, setPressed] = useState(false);
 
@@ -55,6 +57,7 @@ const Item: FC<ItemProps> = ({
         colors={colors}
         dark={dark}
         url={audio}
+        isRevers={isRevers}
       />
     </div>
   );

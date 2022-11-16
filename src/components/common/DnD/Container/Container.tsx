@@ -13,6 +13,7 @@ interface ContainerProps {
   dark: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   setSom: React.Dispatch<React.SetStateAction<'success' | 'mistake'>>;
+  isRevers?: boolean;
 }
 
 const Container: FC<ContainerProps> = ({
@@ -24,6 +25,7 @@ const Container: FC<ContainerProps> = ({
   dark,
   setShow,
   setSom,
+  isRevers = false,
 }) => {
   const success = useAudio(
     require('../../../../assets/sounds/success.mp3')
@@ -85,6 +87,7 @@ const Container: FC<ContainerProps> = ({
         colors={colors}
         dark={dark}
         url={data.audio1}
+        isRevers={isRevers}
       />
       <span>{data.phrase}</span>
     </div>

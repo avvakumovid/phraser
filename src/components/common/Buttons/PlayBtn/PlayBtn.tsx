@@ -5,7 +5,7 @@ import PlayBtnLight from '../../../../assets/img/playbtn1L.svg';
 import PlayBtnLightReverse from '../../../../assets/img/playbtn2L.svg';
 import PlayBtnDark from '../../../../assets/img/playbtn1D.svg';
 import PlayBtnDarkReverse from '../../../../assets/img/playbtn2D.svg';
-import PauseBtnLight from '../../../../assets/img/pauseBtn1D.svg';
+import PauseBtnLight from '../../../../assets/img/pauseBtn1L.svg';
 import PauseBtnLightReverse from '../../../../assets/img/pauseBtn2L.svg';
 import PauseBtnDark from '../../../../assets/img/pauseBtn1D.svg';
 import PauseBtnDarkReverse from '../../../../assets/img/pauseBtn2D.svg';
