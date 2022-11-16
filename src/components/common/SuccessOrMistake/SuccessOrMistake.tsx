@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import styles from './SuccessOrMistake.module.scss';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { MdNotInterested } from 'react-icons/md';
+//@ts-ignore
+import { HiOutlineX } from 'react-icons/hi';
 import { IColors } from '../../../types/types';
 
 interface SuccessOrMistakeProps {
@@ -26,7 +28,7 @@ const SuccessOrMistake: FC<SuccessOrMistakeProps> = ({
       {isSuccess ? (
         <AiOutlineCheck size={'100%'} style={{ fill: 'url(#gradient)' }} />
       ) : (
-        <MdNotInterested size={'100%'} style={{ fill: 'url(#gradient)' }} />
+        <HiOutlineX size={'100%'} style={{ fill: 'url(#gradient)' }} />
       )}
     </div>
   );

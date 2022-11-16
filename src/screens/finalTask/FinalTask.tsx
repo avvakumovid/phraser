@@ -15,8 +15,8 @@ const FinalTask: FC<FinalTaskProps> = ({ colors, dark }) => {
 
   return (
     <Layout>
-      <BeatifulDnd colors={colors} dark={dark} tasks={tasks} />
-      {/* <DnD colors={colors} dark={dark} tasks={tasks} /> */}
+      {/* <BeatifulDnd colors={colors} dark={dark} tasks={tasks} /> */}
+      <DnD colors={colors} dark={dark} tasks={tasks} />
     </Layout>
   );
 };

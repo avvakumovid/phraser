@@ -34,7 +34,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
     if (!shuffledataList.find(s => s.success === false)) {
       dispatch(setTasks());
       setTimeout(() => {
-        navigation('/starttask/1');
+        navigation('/starttask/0');
       }, 400);
     }
   }, [dispatch, navigation, shuffledataList]);
