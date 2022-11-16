@@ -1,8 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import Container from './Container/Container';
 import Item from './Item/Item';
-import { IColors, IData, Task } from './../../../types/types';
-import { useAudio } from '../Player/Player';
+import { IColors, Task } from './../../../types/types';
 import SuccessOrMistake from '../SuccessOrMistake/SuccessOrMistake';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -24,7 +23,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
   const handleDragging = (dragging: boolean) => setIsDragging(dragging);
   const [show, setShow] = useState(false);
   const [som, setSom] = useState<'success' | 'mistake'>('mistake');
-  const [dataList, setDataList] = useState<DnDTask[]>([
+  const [dataList] = useState<DnDTask[]>([
     ...tasks.map(task => ({ ...task, success: false })),
   ]);
   const [shuffledataList, setshuffledataList] = useState<DnDTask[]>(
@@ -38,7 +37,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
         navigation('/starttask/1');
       }, 400);
     }
-  }, [shuffledataList]);
+  }, [dispatch, navigation, shuffledataList]);
 
   const handleUpdateList = (id: number) => {
     setshuffledataList(prev =>
@@ -66,7 +65,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
 
       {shuffledataList.map((d, i) => (
         <Item
-          isRevers={i == 0}
+          isRevers={i === 0}
           colors={colors}
           dark={dark}
           key={d.id}

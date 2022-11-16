@@ -56,7 +56,7 @@ const slice = createSlice({
             }
             const tasks = getRandomTasks(
                 data.filter(task => {
-                    const res = state.complitedTaskId.findIndex(c => c == task.id);
+                    const res = state.complitedTaskId.findIndex(c => c === task.id);
                     return res === -1;
                 })
             );

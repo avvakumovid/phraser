@@ -1,12 +1,10 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import Layout from './../../components/layout/Layout';
 import { useParams } from 'react-router';
 import { IColors } from '../../types/types';
 import Player from '../../components/common/Player/Player';
 import GradientedText from '../../components/common/Text/GradientedText';
-import { Link, useNavigate } from 'react-router-dom';
-import { setTasks } from '../../store/slice/mainSlice';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import styles from './StartTask.module.scss';
 

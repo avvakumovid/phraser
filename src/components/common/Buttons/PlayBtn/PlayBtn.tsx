@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './PlayBtn.module.scss';
-import { AiOutlinePlayCircle, AiOutlinePauseCircle } from 'react-icons/ai';
 import PlayBtnLight from '../../../../assets/img/playbtn1L.svg';
 import PlayBtnLightReverse from '../../../../assets/img/playbtn2L.svg';
 import PlayBtnDark from '../../../../assets/img/playbtn1D.svg';
@@ -25,12 +24,6 @@ const PlayBtn = ({
 }: StartButtonProps) => {
   return (
     <button className={styles.button}>
-      {/* <svg width='0' height='0'>
-        <linearGradient id='gradient' x1='100%' y1='100%' x2='100%' y2='0%'>
-          <stop stopColor={colors.top} offset='0%' />
-          <stop stopColor={colors.bottom} offset='100%' />
-        </linearGradient>
-      </svg> */}
       {isRevers ? (
         <img
           width={'100%'}
@@ -46,19 +39,6 @@ const PlayBtn = ({
           alt='start'
         />
       ) : (
-        // <>
-        //   {pause ? (
-        //     <AiOutlinePauseCircle
-        //       size={'100%'}
-        //       style={{ fill: 'url(#gradient)' }}
-        //     />
-        //   ) : (
-        //     <AiOutlinePlayCircle
-        //       size={'100%'}
-        //       style={{ fill: 'url(#gradient)' }}
-        //     />
-        //   )}
-        // </>
         <img
           width={'100%'}
           src={
@@ -72,19 +52,6 @@ const PlayBtn = ({
           }
           alt='start'
         />
-        // <>
-        //   {pause ? (
-        //     <AiOutlinePauseCircle
-        //       size={'100%'}
-        //       style={{ fill: 'url(#gradient)' }}
-        //     />
-        //   ) : (
-        //     <AiOutlinePlayCircle
-        //       size={'100%'}
-        //       style={{ fill: 'url(#gradient)' }}
-        //     />
-        //   )}
-        // </>
       )}
     </button>
   );

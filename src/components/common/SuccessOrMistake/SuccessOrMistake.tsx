@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import styles from './SuccessOrMistake.module.scss';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { MdNotInterested } from 'react-icons/md';

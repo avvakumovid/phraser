@@ -1,4 +1,4 @@
-import React, { FC, useState, MouseEvent } from 'react';
+import React, { FC, useState } from 'react';
 import { IColors } from '../../../../types/types';
 import Player from '../../Player/Player';
 import styles from './Item.module.scss';

@@ -25,7 +25,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
       setTask(task);
       setPressBtn(false);
     }
-  }, [index]);
+  }, [index, tasks]);
 
   return (
     <Layout
