@@ -5,7 +5,7 @@ import Player from '../../components/common/Player/Player';
 import Layout from '../../components/layout/Layout';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { IColors, Task } from '../../types/types';
-
+import styles from './QuestionTask.module.scss';
 interface QuestionTaskProps {
   colors: IColors;
   dark: boolean;
@@ -18,7 +18,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
   const [buttonNumber, setButtonNumber] = useState(1);
   const [task, setTask] = useState<Task | null>(null);
   const [pressBtn, setPressBtn] = useState(false);
-
+  const [showContent, setShowContent] = useState(false);
   useEffect(() => {
     if (index) {
       const task = tasks[+index];
@@ -36,14 +36,14 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
       }}
     >
       {task ? (
-        <div className='h-full w-full flex flex-col items-center'>
+        <div className={styles.container}>
           <div
             onClick={() => {
               if (buttonNumber === 1) {
                 setButtonNumber(prev => prev + 1);
               }
             }}
-            className='flex flex-row justify-center items-center self-start'
+            className={styles.heading}
           >
             <Player
               pulse={buttonNumber === 1}
@@ -52,10 +52,15 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
               key={'audio1'}
               url={task.audio1}
             />
-            <span className='ml-5 uppercase italic'>{task.phrase}</span>
+            <span>{task.phrase}</span>
           </div>
           {!pressBtn ? (
-            <div className='mt-[10vh]'>
+            <div
+              onClick={() => {
+                setShowContent(true);
+              }}
+              className={styles.question}
+            >
               <QuestionButton
                 disabled={buttonNumber <= 1}
                 anim={buttonNumber === 2}
@@ -69,11 +74,17 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
               />
             </div>
           ) : (
-            <>
-              <div className='mt-[5vh]  w-[200px] md:w-[250px] lg:w-[300px]'>
+            <div
+              className={`${styles.content} `}
+              style={{
+                scale: showContent ? 100 : 0,
+                
+              }}
+            >
+              <div className={styles.image}>
                 <img alt='pic' width='100%' src={task.image.toString()} />
               </div>
-              <div className='mt-[5vh] flex flex-row justify-center items-center self-start'>
+              <div className={styles.heading2}>
                 <Player
                   disabled={buttonNumber <= 2}
                   onClick={() => {
@@ -88,11 +99,9 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
                   url={task.audio2}
                   isRevers={true}
                 />
-                <span className='ml-5 uppercase italic'>
-                  {task.explanation}
-                </span>
+                <span>{task.explanation}</span>
               </div>
-              <div className='mt-[5vh]'>
+              <div className={styles.last}>
                 <Player
                   disabled={buttonNumber <= 3}
                   pulse={buttonNumber === 4}
@@ -108,7 +117,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
                   isRevers={false}
                 />
               </div>
-            </>
+            </div>
           )}
         </div>
       ) : (

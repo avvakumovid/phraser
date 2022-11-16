@@ -1,0 +1,8 @@
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}
+.container {
+  @apply mt-[15vh] p-0;
+}

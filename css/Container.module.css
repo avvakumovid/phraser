@@ -1,0 +1,11 @@
+.container {
+  @apply w-full h-[15vh] flex justify-start items-center uppercase rounded-3xl italic z-10;
+  transition: all 0.6s ease;
+}
+.container > div {
+  @apply flex flex-row justify-start items-center mr-5;
+}
+
+.isDraging {
+  @apply bg-yellow-200;
+}

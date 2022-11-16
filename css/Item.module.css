@@ -1,0 +1,6 @@
+.item {
+  @apply w-full flex flex-row justify-start items-end px-4;
+}
+.item > img {
+  @apply w-[200px] md:w-[220px] lg:w-[250px] mr-5;
+}

@@ -1,0 +1,13 @@
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}
+.button {
+  @apply flex items-center justify-center;
+}
+
+.heart {
+  animation: beat 1s infinite alternate;
+  transform-origin: center;
+}

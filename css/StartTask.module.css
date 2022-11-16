@@ -1,0 +1,19 @@
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}
+.container {
+  @apply flex flex-row mt-[15vh] justify-start items-center;
+}
+.container > div {
+  @apply ml-5 flex flex-col;
+}
+.container > div > span {
+  @apply italic uppercase mt-2;
+}
+
+.heart {
+  animation: beat 1s infinite alternate;
+  transform-origin: center;
+}

@@ -1,0 +1,28 @@
+.container {
+  @apply h-full w-full flex flex-col items-center;
+}
+.container .heading {
+  @apply flex flex-row justify-center items-center self-start;
+}
+.container .heading > span {
+  @apply ml-5 uppercase italic;
+}
+.container .question {
+  @apply mt-[10vh];
+}
+.container .content {
+  @apply flex flex-col items-center w-full opacity-100;
+  transition: all 0.4s ease-out;
+}
+.container .content .image {
+  @apply mt-[5vh] w-[200px] md:w-[250px] lg:w-[300px];
+}
+.container .content .heading2 {
+  @apply mt-[5vh] flex flex-row justify-center items-center self-start;
+}
+.container .content .heading2 > span {
+  @apply ml-5 uppercase italic;
+}
+.container .content .last {
+  @apply mt-[5vh];
+}

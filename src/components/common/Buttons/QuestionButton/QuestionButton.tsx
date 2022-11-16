@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './QuestionButton.module.scss';
 import QuestionButtonLight from '../../../../assets/img/qestionbtnL.svg';
 import QuestionButtonDark from '../../../../assets/img/qestionbtnD.svg';
@@ -15,12 +15,18 @@ const QuestionButton = ({
   anim,
   disabled,
 }: StartButtonProps) => {
+  const [click, setClick] = useState(false);
   return (
     <button
       disabled={disabled}
-      className={`${styles.button} ${anim ? styles.heart : null}`}
+      className={`${styles.button} ${anim ? styles.heart : null} ${
+        click ? styles.hidden : ''
+      }`}
       onClick={() => {
-        onClick();
+        setClick(true);
+        setTimeout(() => {
+          onClick();
+        }, 400);
       }}
     >
       <img

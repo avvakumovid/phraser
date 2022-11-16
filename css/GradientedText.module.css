@@ -1,0 +1,16 @@
+@keyframes beat {
+  to {
+    transform: scale(1.1);
+  }
+}
+.text {
+  @apply italic text-3xl md:text-4xl lg:text-5xl uppercase;
+}
+
+.light {
+  @apply bg-clip-text bg-gradient-to-b from-[#704EF4] to-[#FF2CDF] text-transparent;
+}
+
+.dark {
+  @apply bg-clip-text bg-gradient-to-b from-[#2CFFFF] to-[#704EF4] text-transparent;
+}

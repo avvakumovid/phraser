@@ -1,6 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import { ThemeContext } from '../../context/context';
 import styles from './Layout.module.scss';
+import { Helmet } from 'react-helmet';
 import { Footer } from './../common/Footer/Footer';
 interface ILayout {
   children: ReactNode;
@@ -34,6 +35,9 @@ const Layout = ({
           />
         )}
       </div>
+      <Helmet>
+        <style>{`body { background-color: ${colors.bg}; }`}</style>
+      </Helmet>
     </div>
   );
 };
