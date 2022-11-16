@@ -1,14 +1,10 @@
 import React, { FC, ReactNode, useEffect, useState } from 'react';
+import { IColors } from '../types/types';
 
 interface IThemeContext {
   dark: boolean;
   toggleDark: () => void;
-  colors: {
-    top: string;
-    bottom: string;
-    bg: string;
-    text: string;
-  };
+  colors: IColors;
 }
 
 const thems = {

@@ -5,16 +5,21 @@ import startBtnDark from '../../../../assets/img/startBtnDark.svg';
 interface StartButtonProps {
   onClick: () => void;
   dark: boolean;
+  anim: boolean;
 }
 
-const StartButton = ({ onClick, dark }: StartButtonProps) => {
+const StartButton = ({ onClick, dark, anim }: StartButtonProps) => {
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button
+      className={`${styles.button} ${anim ? styles.heart : null}`}
+      onClick={() => {
+        onClick();
+      }}
+    >
       <img
         width={'100%'}
         src={dark ? startBtnDark : startBtnLight}
-        alt='s'
-        style={{ fill: 'url(#sun-gradient)' }}
+        alt='start'
       />
     </button>
   );

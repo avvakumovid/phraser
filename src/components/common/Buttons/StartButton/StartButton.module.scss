@@ -3,3 +3,12 @@
 
 
 }
+
+.heart {
+  animation: beat 0.75s infinite alternate;
+	transform-origin: center;
+}
+
+@keyframes beat{
+	to { transform: scale(1.1); }
+}

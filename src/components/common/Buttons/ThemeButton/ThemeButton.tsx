@@ -1,5 +1,5 @@
 import React, { useContext, MouseEvent } from 'react';
-import { ThemeContext } from '../../../context/context';
+import { ThemeContext } from '../../../../context/context';
 import { BsMoonStars, BsSun } from 'react-icons/bs';
 
 function ThemeButton() {
