@@ -57,9 +57,11 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
           {!pressBtn ? (
             <div
               onClick={() => {
-                setShowContent(true);
+                setTimeout(() => {
+                  setShowContent(true);
+                }, 10000);
               }}
-              className={styles.question}
+              className={`${styles.question} `}
             >
               <QuestionButton
                 disabled={buttonNumber <= 1}
@@ -76,10 +78,11 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
           ) : (
             <div
               className={`${styles.content} `}
-              style={{
-                scale: showContent ? 100 : 0,
-                
-              }}
+              style={
+                {
+                  // scale: showContent ? 30 : 60,
+                }
+              }
             >
               <div className={styles.image}>
                 <img alt='pic' width='100%' src={task.image.toString()} />

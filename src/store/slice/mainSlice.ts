@@ -20,7 +20,7 @@ const tasks: ITask[] = [
     },
     {
         number: 2,
-        title: 'послушай и соедени картинки правильно',
+        title: 'послушай и соедини картинки правильно',
         audio: require('../../assets/sounds/послушай и соедени картинки правильно.mp3'),
         to: '/finalTask',
         duration: 2600,
