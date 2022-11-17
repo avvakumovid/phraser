@@ -12,6 +12,7 @@ interface ItemProps {
   colors: IColors;
   dark: boolean;
   isRevers: boolean;
+  setDataTransfer: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Item: FC<ItemProps> = ({
@@ -23,19 +24,20 @@ const Item: FC<ItemProps> = ({
   colors,
   dark,
   isRevers,
+  setDataTransfer,
 }) => {
   const [pressed, setPressed] = useState(false);
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
-    e.dataTransfer.setData('text', `${id}`);
+    // e.dataTransfer.setData('text', `${id}`);
+    setDataTransfer(id);
     handleDragging(true);
     e.currentTarget.style.opacity = '0';
   };
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    // e.dataTransfer.setData('text', `${id}`);
-    console.log(e);
+    setDataTransfer(id);
     handleDragging(true);
-    // e.
+    e.currentTarget.style.opacity = '0.2';
   };
 
   const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
@@ -57,9 +59,14 @@ const Item: FC<ItemProps> = ({
       className={styles.item}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      onMouseDown={e => {}}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onTouchMove={(e: React.TouchEvent) => {
+        // console.log);
+        e.target.addEventListener('ended', f => {
+          console.log(f);
+        });
+      }}
     >
       <img alt='pic' src={src} />
       <Player

@@ -6,7 +6,7 @@ import QuestionTask from '../screens/questionTask/QuestionTask';
 import StartTask from '../screens/startTask/StartTask';
 import FinalTask from './../screens/finalTask/FinalTask';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import "./styles.css";
+import './styles.css';
 
 const Navigation = () => {
   const location = useLocation();

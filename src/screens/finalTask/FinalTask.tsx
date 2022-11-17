@@ -4,6 +4,7 @@ import Layout from './../../components/layout/Layout';
 import DnD from './../../components/common/DnD/DnD';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import BeatifulDnd from '../../components/BeatifulDnd/BeatifulDnd';
+import DragAndDrop from '../../components/DragAndDrop/DragAndDrop';
 
 interface FinalTaskProps {
   colors: IColors;
@@ -16,7 +17,8 @@ const FinalTask: FC<FinalTaskProps> = ({ colors, dark }) => {
   return (
     <Layout>
       {/* <BeatifulDnd colors={colors} dark={dark} tasks={tasks} /> */}
-      <DnD colors={colors} dark={dark} tasks={tasks} />
+      {/* <DnD colors={colors} dark={dark} tasks={tasks} /> */}
+      <DragAndDrop colors={colors} dark={dark} tasks={tasks} />
     </Layout>
   );
 };

@@ -29,7 +29,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
   const [shuffledataList, setshuffledataList] = useState<DnDTask[]>(
     shuffle([...tasks.map(task => ({ ...task, success: false }))])
   );
-
+  const [dataTransfet, setDataTransfer] = useState(-1);
   useEffect(() => {
     if (!shuffledataList.find(s => s.success === false)) {
       dispatch(setTasks());
@@ -52,6 +52,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
   return (
     <div className='h-full w-full  flex flex-col justify-between'>
       <Container
+        dataTransfet={dataTransfet}
         setShow={setShow}
         setSom={setSom}
         colors={colors}
@@ -65,6 +66,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
 
       {shuffledataList.map((d, i) => (
         <Item
+          setDataTransfer={setDataTransfer}
           isRevers={i === 0}
           colors={colors}
           dark={dark}
@@ -78,6 +80,7 @@ const DnD: FC<DNDProps> = ({ tasks, colors, dark }) => {
       ))}
 
       <Container
+        dataTransfet={dataTransfet}
         setShow={setShow}
         setSom={setSom}
         colors={colors}

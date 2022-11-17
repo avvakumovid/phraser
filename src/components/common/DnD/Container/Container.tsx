@@ -14,6 +14,7 @@ interface ContainerProps {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   setSom: React.Dispatch<React.SetStateAction<'success' | 'mistake'>>;
   isRevers?: boolean;
+  dataTransfet: number;
 }
 
 const Container: FC<ContainerProps> = ({
@@ -26,6 +27,7 @@ const Container: FC<ContainerProps> = ({
   setShow,
   setSom,
   isRevers = false,
+  dataTransfet,
 }) => {
   const success = useAudio(
     require('../../../../assets/sounds/success.mp3')
@@ -38,12 +40,13 @@ const Container: FC<ContainerProps> = ({
   const [isOn, setIsOn] = useState(false);
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
+    console.log('end');
   };
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    console.log('drop');
     e.preventDefault();
     setIsOn(false);
-    // e.currentTarget.style.backgroundColor = '';
-    const id = +e.dataTransfer.getData('text');
+    const id = dataTransfet;
     if (id === data.id) {
       handleUpdateList(id);
       setSom('success');
@@ -68,11 +71,13 @@ const Container: FC<ContainerProps> = ({
       onDragOver={handleDragOver}
       onDrop={handleDrop}
       onDragEnter={e => {
+        console.log('enter');
         e.preventDefault();
         counter++;
         setIsOn(true);
       }}
       onDragLeave={e => {
+        console.log('leave');
         if (counter === 0) {
           setIsOn(false);
         }

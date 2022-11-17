@@ -7742,6 +7742,13 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-drag-drop-container@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/react-drag-drop-container/-/react-drag-drop-container-6.1.1.tgz#9ba08eb2bfe14202f179d601227b0ae5b589de48"
+  integrity sha512-GfKE4L/t5TnxOfCEfYkc0tsMvQQ+HXg88NmDwi2nBmFG7JHsZUJjIn1EnI0Uia5xocXtJSrk/9A3cF1ja9kx1g==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-error-overlay@^6.0.11:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"

@@ -1,0 +1,28 @@
+.drop {
+    @apply w-[600px] h-[300px] border border-purple-400;
+
+    transition: all 0.8s ease-out;
+}
+
+.enter {
+    @apply bg-red-400
+}
+
+.item {
+    @apply w-full flex flex-row justify-start items-end px-4;
+
+    >img {
+        @apply w-[200px] md:w-[220px] lg:w-[250px] mr-5;
+    }
+}
+
+.container {
+    @apply w-full h-[15vh] flex justify-start items-center uppercase rounded-3xl italic z-10;
+    transition: all .6s ease;
+
+    >div {
+        @apply flex flex-row justify-start items-center mr-5;
+
+    }
+}
+
