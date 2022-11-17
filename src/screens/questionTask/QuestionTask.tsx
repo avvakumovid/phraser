@@ -24,6 +24,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
       const task = tasks[+index];
       setTask(task);
       setPressBtn(false);
+      setShowContent(false);
     }
   }, [index, tasks]);
 
@@ -62,7 +63,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
               onClick={() => {
                 setTimeout(() => {
                   setShowContent(true);
-                }, 600);
+                }, 300);
               }}
               className={`${styles.question} `}
             >
