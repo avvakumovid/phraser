@@ -31,7 +31,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
 
   const [show, setShow] = useState(false);
   const [som, setSom] = useState<'success' | 'mistake'>('mistake');
-
+  const [pressed, setPressed] = useState<number[]>([]);
   const [dataList] = useState<DragAndDropTask[]>([
     ...tasks.map(task => ({ ...task, success: false })),
   ]);
@@ -83,7 +83,15 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
               : '',
           }}
         >
-          <Player colors={colors} dark={dark} url={tasks[0].audio1} />
+          <Player
+            pulse={!pressed.includes(2)}
+            onClick={() => {
+              setPressed(prev => [...prev, 2]);
+            }}
+            colors={colors}
+            dark={dark}
+            url={tasks[0].audio1}
+          />
           <span>{tasks[0].phrase}</span>
         </div>
       </DropTarget>
@@ -108,14 +116,14 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
             >
               <img alt='pic' src={task.image.toString()} />
               <Player
-                // pulse={!pressed}
-                // onClick={() => {
-                //   setPressed(true);
-                // }}
+                pulse={!pressed.includes(index)}
+                onClick={() => {
+                  setPressed(prev => [...prev, index]);
+                }}
                 colors={colors}
                 dark={dark}
                 url={task.audio2}
-                // isRevers={isRevers}
+                isRevers={index === 0}
               />
             </div>
           </DragDropContainer>
@@ -130,7 +138,16 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
           }}
           className={`${styles.container} `}
         >
-          <Player colors={colors} dark={dark} url={tasks[1].audio1} />
+          <Player
+            pulse={!pressed.includes(3)}
+            onClick={() => {
+              setPressed(prev => [...prev, 3]);
+            }}
+            colors={colors}
+            dark={dark}
+            url={tasks[1].audio1}
+            isRevers={true}
+          />
           <span>{tasks[1].phrase}</span>
         </div>
       </DropTarget>
