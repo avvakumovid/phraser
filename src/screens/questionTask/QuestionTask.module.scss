@@ -12,7 +12,7 @@
     }
 
     .question {
-        @apply mt-[10vh];
+        @apply mt-[10vh] p-0;
     }
 
 
@@ -23,7 +23,7 @@
         transition: all .4s ease-out;
 
         .image {
-            @apply mt-[5vh] w-[200px] md:w-[250px] lg:w-[300px];
+            @apply mt-[5vh] w-[200px] md:w-[250px] lg:w-[300px] p-0;
         }
 
 
@@ -37,7 +37,7 @@
         }
 
         .last {
-            @apply mt-[5vh]
+            @apply mt-[5vh] p-0
         }
     }
 

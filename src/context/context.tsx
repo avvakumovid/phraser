@@ -18,14 +18,14 @@ const thems = {
     top: '#704EF4',
     bottom: '#FF2CDF',
     bg: '#ffffff',
-    text: '#FF2CDF',
+    text: '#704EF4',
   },
 };
 
 export const defaultState: IThemeContext = {
-  dark: true,
+  dark: false,
   toggleDark: () => {},
-  colors: thems.dark,
+  colors: thems.light,
 };
 
 export const ThemeContext = React.createContext<IThemeContext>(defaultState);
