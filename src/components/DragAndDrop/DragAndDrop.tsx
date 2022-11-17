@@ -49,6 +49,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
   }, [dispatch, navigation, shuffledataList]);
 
   const onDrop = (e: any) => {
+    e.preventDefault();
     if (e.dragData.id === e.dropData.id) {
       setshuffledataList(prev =>
         prev.map(p => {
@@ -91,11 +92,11 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
           <DragDropContainer
             targetKey='foo'
             onDrop={onDrop}
-            onDragStart={(e: any) => {
-              setEnter(true);
-            }}
             onDragEnd={(e: any) => {
               setEnter(false);
+            }}
+            onDrag={(e: any) => {
+              setEnter(true);
             }}
             dragData={{ id: task.id }}
           >
@@ -130,7 +131,7 @@ const DragAndDrop: FC<DragAndDropProps> = ({ colors, dark, tasks }) => {
           className={`${styles.container} `}
         >
           <Player colors={colors} dark={dark} url={tasks[1].audio1} />
-          <span>{tasks[0].phrase}</span>
+          <span>{tasks[1].phrase}</span>
         </div>
       </DropTarget>
       {show && (
