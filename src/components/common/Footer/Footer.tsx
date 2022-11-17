@@ -6,7 +6,7 @@ import RightLight from '../../../assets/img/rightArrowL.svg';
 import RightDark from '../../../assets/img/rightArrowD.svg';
 import HomeLight from '../../../assets/img/homeL.svg';
 import HomeDark from '../../../assets/img/homeD.svg';
-
+import styles from './Footer.module.scss';
 interface FooterProps {
   dark: boolean;
   linkTo: string;
@@ -23,7 +23,7 @@ export const Footer: FC<FooterProps> = ({
   let navigate = useNavigate();
   return (
     <div
-      className={`w-full flex flex-row items-center ${
+      className={` ${styles.container} ${
         isOnlyHome ? 'justify-center' : 'justify-between'
       }`}
     >
@@ -32,12 +32,12 @@ export const Footer: FC<FooterProps> = ({
           onClick={() => {
             navigate(-1);
           }}
-          className='w-[20px] md:w-[30px] lg:w-[40px]'
+          className={styles.icon}
         >
           <img width='100%' alt='left' src={dark ? LeftDark : LeftLight} />
         </button>
       )}
-      <Link className='w-[20px] md:w-[30px] lg:w-[40px] ' to='/'>
+      <Link className={styles.icon} to='/'>
         <img width='100%' alt='home' src={dark ? HomeDark : HomeLight} />
       </Link>
       {!isOnlyHome && (
@@ -45,7 +45,7 @@ export const Footer: FC<FooterProps> = ({
           onClick={() => {
             onRightClick();
           }}
-          className='w-[20px] md:w-[30px] lg:w-[40px]'
+          className={styles.icon}
           to={linkTo}
         >
           <img width='100%' alt='right' src={dark ? RightDark : RightLight} />
