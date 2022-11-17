@@ -27,6 +27,9 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
     }
   }, [index, tasks]);
 
+  useEffect(() => {
+    console.log(showContent);
+  }, [showContent]);
   return (
     <Layout
       isFooter={true}
@@ -59,7 +62,7 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
               onClick={() => {
                 setTimeout(() => {
                   setShowContent(true);
-                }, 10000);
+                }, 600);
               }}
               className={`${styles.question} `}
             >
@@ -78,11 +81,12 @@ const QuestionTask: FC<QuestionTaskProps> = ({ colors, dark }) => {
           ) : (
             <div
               className={`${styles.content} `}
-              style={
-                {
-                  // scale: showContent ? 30 : 60,
-                }
-              }
+              style={{
+                opacity: showContent ? 1 : 0,
+                transition: showContent
+                  ? ' transform 0.5s ease 0s, opacity 0.5s ease 0.5s'
+                  : ' ',
+              }}
             >
               <div className={styles.image}>
                 <img alt='pic' width='100%' src={task.image.toString()} />
