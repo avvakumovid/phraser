@@ -2,7 +2,7 @@
 
 
 .button {
-  @apply w-[200px] md:w-[300px] lg:w-[400px] bg-opacity-[0.2] rounded-full;
+  @apply w-[200px] md:w-[300px] lg:w-[300px] bg-opacity-[0.2] rounded-full;
 
   @include heartBeat
 
